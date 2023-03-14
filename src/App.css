@@ -15,6 +15,39 @@
 .BoardRow {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 50px;
+  gap: 2rem;
   background-color: grey;
+}
+
+.BoardSquare {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2 {
+  border: 3px solid white;
+}
+
+.titleText {
+  display: block;
+  letter-spacing: 2rem;
+  text-align: right;
+  text-indent: -2rem;
+}
+
+.title {
+  margin-bottom: 4rem;
+  letter-spacing: 2rem;
+}
+
+#child {
+  margin: 0 auto;
+}
+
+.underline {
+  width: 20rem;
+  height: 0.25rem;
+  background: hsl(205, 78%, 60%);
+  margin-left: auto;
+  margin-right: auto;
 }

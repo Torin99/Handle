@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import BoardRow from "./assets/row";
+import BoardRow from "./row";
 import "./App.css";
 
 function App() {
@@ -15,11 +15,17 @@ function App() {
   }, [setSolution]);
   console.log(solution);
   return (
-    <div className="App">
-      <div className="Board">
-        <BoardRow solution={solution.word} />
+    <>
+      <div className="title">
+        <h2 className="titleText">HANDLE</h2>
+        <div className="underline"></div>
       </div>
-    </div>
+      <div className="App">
+        <div className="Board">
+          <BoardRow solution={solution.word} />
+        </div>
+      </div>
+    </>
   );
 }
 
