@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import BoardRow from "./row";
 import "./App.css";
+import Handle from "./components/Handle";
 
 function App() {
-  const [solution, setSolution] = useState({ word: "hello" });
+  const [solution, setSolution] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:3001/solutions")
@@ -13,7 +14,6 @@ function App() {
         setSolution(rand);
       });
   }, [setSolution]);
-  console.log(solution);
   return (
     <>
       <div className="title">
@@ -21,8 +21,9 @@ function App() {
         <div className="underline"></div>
       </div>
       <div className="App">
+        {solution && <Handle solution={solution} />}
         <div className="Board">
-          <BoardRow solution={solution.word} />
+          {solution && <BoardRow solution={solution.word} />}
         </div>
       </div>
     </>

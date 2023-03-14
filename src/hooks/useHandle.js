@@ -8,7 +8,9 @@ function useHandle(solution) {
 
   function formatGuess() {}
   function addNewGuess() {}
-  function handleKeyup() {}
+  function handleKeyup({ key }) {
+    console.log(key);
+  }
 
   return { turn, current, guessList, isCorrect, handleKeyup };
 }

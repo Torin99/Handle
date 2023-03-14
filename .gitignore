@@ -23,8 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-run.txt
-
 package.json
 package-lock.json
 
