@@ -21,10 +21,14 @@ function App() {
         <div className="underline"></div>
       </div>
       <div className="App">
-        {solution && <Handle solution={solution} />}
-        <div className="Board">
-          {solution && <BoardRow solution={solution.word} />}
-        </div>
+        {solution && (
+          <>
+            <Handle solution={solution} />
+            <div className="Board">
+              <BoardRow solution={solution.word} />
+            </div>
+          </>
+        )}
       </div>
     </>
   );

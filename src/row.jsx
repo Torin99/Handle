@@ -2,7 +2,7 @@ function BoardRow({ solution }) {
   return (
     <div className="BoardRow">
       <div className="BoardSquare">
-        <h2>{solution[0].toUpperCase()}</h2>
+        <h2>{solution[0]}</h2>
       </div>
       <div className="BoardSquare">
         <h2>{solution[1]}</h2>
