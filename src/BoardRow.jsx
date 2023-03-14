@@ -1,7 +1,7 @@
 function BoardRow({ solution }) {
   return (
     <div className="BoardRow">
-      <div className="BoardSquare">
+      <div className="BoardSquare" style={{ background: "green" }}>
         <h2>{solution[0]}</h2>
       </div>
       <div className="BoardSquare">

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Handle from "./components/Handle";
+import { TbHandRock } from "react-icons/tb";
 
 function App() {
   const [solution, setSolution] = useState(null);
@@ -16,7 +17,10 @@ function App() {
   return (
     <>
       <div className="title">
-        <h2>HANDLE</h2>
+        <h2>
+          HANDLE
+          <TbHandRock />
+        </h2>
         <div className="underline"></div>
       </div>
       <div className="App">

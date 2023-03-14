@@ -8,6 +8,7 @@ function useHandle(solution) {
 
   function formatGuess() {
     setHistory((prev) => [...prev, current]);
+    setGuessList((prev) => [...prev, current.split("")]);
     setCurrent("");
     console.log("Entered Guess: ", current);
   }

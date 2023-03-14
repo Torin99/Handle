@@ -4,7 +4,7 @@ import BoardRow from "../BoardRow";
 import Board from "../Board";
 
 function Handle({ solution }) {
-  const { current, history, handleKeyup } = useHandle(solution);
+  const { current, history, guessList, handleKeyup } = useHandle(solution);
 
   useEffect(() => {
     window.addEventListener("keyup", handleKeyup);
@@ -15,6 +15,7 @@ function Handle({ solution }) {
     <div>
       <div>
         {/* <BoardRow solution={solution.word} /> */}
+        {console.log(guessList)}
         <Board entry={current} history={history} />
       </div>
       {/* <div className="Board">{solution && <BoardRow solution={current} />}</div> */}
