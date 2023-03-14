@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import BoardRow from "./row";
 import "./App.css";
 import Handle from "./components/Handle";
 
@@ -17,16 +16,13 @@ function App() {
   return (
     <>
       <div className="title">
-        <h2 className="titleText">HANDLE</h2>
+        <h2>HANDLE</h2>
         <div className="underline"></div>
       </div>
       <div className="App">
         {solution && (
           <>
             <Handle solution={solution} />
-            <div className="Board">
-              <BoardRow solution={solution.word} />
-            </div>
           </>
         )}
       </div>
