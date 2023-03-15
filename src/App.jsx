@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import BoardRow from "./row";
 import "./App.css";
 import Handle from "./components/Handle";
+import { TbHandRock } from "react-icons/tb";
 
 function App() {
   const [solution, setSolution] = useState(null);
@@ -17,14 +17,18 @@ function App() {
   return (
     <>
       <div className="title">
-        <h2 className="titleText">HANDLE</h2>
+        <h2>
+          HANDLE
+          <TbHandRock />
+        </h2>
         <div className="underline"></div>
       </div>
       <div className="App">
-        {solution && <Handle solution={solution} />}
-        <div className="Board">
-          {solution && <BoardRow solution={solution.word} />}
-        </div>
+        {solution && (
+          <>
+            <Handle solution={solution} />
+          </>
+        )}
       </div>
     </>
   );
