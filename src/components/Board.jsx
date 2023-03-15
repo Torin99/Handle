@@ -1,3 +1,4 @@
+import React from "react";
 import BoardRow from "./BoardRow";
 function Board({ entry, guessList, solution }) {
   let word = (entry + "     ").substring(0, 5).split("");
