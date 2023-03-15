@@ -15,8 +15,8 @@ function Handle({ solution }) {
     <div>
       <div>
         {/* <BoardRow solution={solution.word} /> */}
-        {console.log(guessList)}
-        <Board entry={current} history={history} />
+        {console.log(solution)}
+        <Board entry={current} guessList={guessList} solution={solution} />
       </div>
       {/* <div className="Board">{solution && <BoardRow solution={current} />}</div> */}
     </div>

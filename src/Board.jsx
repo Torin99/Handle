@@ -1,12 +1,16 @@
 import BoardRow from "./BoardRow";
-function Board({ entry, history }) {
-  let word = entry + "     ";
+function Board({ entry, guessList, solution }) {
+  let word = (entry + "     ").substring(0, 5).split("");
   return (
     <div className="Board">
-      {history.map((guess) => (
-        <BoardRow key={history.indexOf(guess)} solution={guess} />
+      {guessList.map((guess) => (
+        <BoardRow
+          key={guessList.indexOf(guess)}
+          entry={guess}
+          solution={solution}
+        />
       ))}
-      <BoardRow solution={word} />
+      <BoardRow entry={word} solution={solution} />
     </div>
   );
 }

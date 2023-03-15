@@ -1,22 +1,31 @@
-function BoardRow({ solution }) {
+function BoardRow({ entry, solution }) {
+  function check_color(solution, index, letter) {
+    let color = "grey";
+    if (letter === " ") {
+      return "";
+    } else if (solution.word[index] === letter) {
+      color = "green";
+    } else if (solution.word.includes(letter)) {
+      color = "#B59F3B";
+    }
+    return color;
+  }
+
   return (
     <div className="BoardRow">
-      <div className="BoardSquare" style={{ background: "green" }}>
-        <h2>{solution[0]}</h2>
-      </div>
-      <div className="BoardSquare">
-        <h2>{solution[1]}</h2>
-      </div>
-      <div className="BoardSquare">
-        <h2>{solution[2]}</h2>
-      </div>
-      <div className="BoardSquare">
-        <h2>{solution[3]}</h2>
-      </div>
-      <div className="BoardSquare">
-        <h2>{solution[4]}</h2>
-      </div>
+      {entry.map((letter, index) => (
+        <div
+          className="BoardSquare"
+          key={index}
+          style={{
+            background: check_color(solution, index, entry[index]),
+          }}
+        >
+          <h2>{letter}</h2>
+        </div>
+      ))}
     </div>
   );
 }
+
 export default BoardRow;
