@@ -1,3 +1,4 @@
+import React from "react";
 function BoardRow({ entry, solution }) {
   function check_color(solution, index, letter) {
     let color = "grey";
