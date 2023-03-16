@@ -1,14 +1,15 @@
 import { Hands } from "@mediapipe/hands";
+import React, { useRef, useEffect } from "react";
 import * as Hands2 from "@mediapipe/hands";
-import cam from "@mediapipe/camera_utils";
+import * as cam from "@mediapipe/camera_utils";
 import Webcam from "react-webcam";
-import { useRef, useEffect } from "react";
+
 function Detection() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-  var camera = null;
   const connect = window.drawConnectors;
   const landmark = window.drawLandmarks;
+  var camera = null;
 
   function onResults(results) {
     console.log(results);
@@ -28,7 +29,7 @@ function Detection() {
       canvasElement.width,
       canvasElement.height
     );
-    if (results.multi_hand_landmarks) {
+    if (results.multiHandLandmarks) {
       for (const landmarks of results.multiHandLandmarks) {
         connect(canvasCtx, landmarks, Hands2.HAND_CONNECTIONS, {
           color: "#00FF00",
