@@ -45,7 +45,7 @@ function Detection() {
   }
 
   useEffect(() => {
-    const hands = new Hands({
+    const hands = new Hands({ //setup new hands object used for detection
       locateFile: (file) => {
         return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
       },
@@ -59,13 +59,13 @@ function Detection() {
 
     hands.onResults(onResults);
 
-    if (
+    if ( //if our webcam "exists", or in english if we have permission (!== compares value and type)
       typeof webcamRef.current !== "undefined" &&
       webcamRef.current !== null
     ) {
       camera = new cam.Camera(webcamRef.current.video, {
         onFrame: async () => {
-          await hands.send({ image: webcamRef.current.video });
+          await hands.send({ image: webcamRef.current.video }); //for each frame send the hands object the current video frame for processing
         },
         width: 640,
         height: 480,

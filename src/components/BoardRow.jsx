@@ -7,7 +7,7 @@ function BoardRow({ entry, solution }) {
     } else if (solution.word[index] === letter) {
       color = "green";
     } else if (solution.word.includes(letter)) {
-      color = "#B59F3B";
+      color = "#B59F3B"; //the fancy yellow
     }
     return color;
   }

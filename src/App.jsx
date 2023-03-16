@@ -8,7 +8,7 @@ import Detection from "./components/Detection";
 function App() {
   const [solution, setSolution] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { //look for the server and then pick a random number and set it as the solution, from the library of solutions
     fetch("http://localhost:3001/solutions")
       .then((resp) => resp.json())
       .then((json) => {
