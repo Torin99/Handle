@@ -12,7 +12,12 @@ function Detection() {
   var camera = null;
 
   function onResults(results) {
-    console.log(results);
+
+    if (results.multiHandLandmarks.length != 0) { //only log when there is a hand/hands on screen 
+      console.log(results);
+    }
+
+    
     //setting canvas height and width
     canvasRef.current.width = webcamRef.current.video.videoWidth;
     canvasRef.current.height = webcamRef.current.video.videoHeight;
