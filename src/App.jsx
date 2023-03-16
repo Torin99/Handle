@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Handle from "./components/Handle";
 import { TbHandRock } from "react-icons/tb";
+import Detection from "./components/Detection";
 
 function App() {
   const [solution, setSolution] = useState(null);
@@ -31,6 +32,7 @@ function App() {
           </>
         )}
       </div>
+      <Detection />
     </>
   );
 }
