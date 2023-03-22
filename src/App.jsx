@@ -8,7 +8,8 @@ import Detection from "./components/Detection";
 function App() {
   const [solution, setSolution] = useState(null);
 
-  useEffect(() => { //look for the server and then pick a random number and set it as the solution, from the library of solutions
+  useEffect(() => {
+    //look for the server and then pick a random number and set it as the solution, from the library of solutions
     fetch("http://localhost:3001/solutions")
       .then((resp) => resp.json())
       .then((json) => {
@@ -18,21 +19,25 @@ function App() {
   }, [setSolution]);
   return (
     <>
-      <div className="title">
-        <h2>
-          HANDLE
-          <TbHandRock />
-        </h2>
-        <div className="underline"></div>
-      </div>
       <div className="App">
-        {solution && (
-          <>
-            <Handle solution={solution} />
-          </>
-        )}
+        <div className="left">
+          <Detection />
+        </div>
+        <div className="middle">
+          <div className="title">
+            <h2>
+              HANDLE
+              <TbHandRock />
+            </h2>
+            <div className="underline"></div>
+          </div>
+          {solution && (
+            <>
+              <Handle solution={solution} />
+            </>
+          )}
+        </div>
       </div>
-      <Detection />
     </>
   );
 }

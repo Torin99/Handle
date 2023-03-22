@@ -4,6 +4,12 @@
   text-align: center;
 }
 
+.App {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .Board {
   display: grid;
   /* grid-template-rows: repeat(6, 1fr); */
