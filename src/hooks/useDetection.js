@@ -2,7 +2,7 @@ import { Hands } from "@mediapipe/hands";
 import React, { useRef, useEffect } from "react";
 import * as Hands2 from "@mediapipe/hands";
 import * as cam from "@mediapipe/camera_utils";
-import signs from "../data";
+import signs from "../../data/sign_data";
 
 function useDetection() {
   const webcamRef = useRef(null);
@@ -57,6 +57,22 @@ function useDetection() {
     }
     return true;
   }
+  function check_position2(index_array) {
+    let positions = [8, 9, 16, 17, 24, 25, 32, 33, 40, 41];
+    for (let sign of signs) {
+      let max_array = sign.max_array;
+      let min_array = sign.min_array;
+      if (check_position(index_array, min_array, max_array)) return sign.sign;
+    }
+    return "None";
+
+    // for (let index in positions) {
+    //   if (index_array[positions[index]] > max_array[index]) return false;
+
+    //   if (index_array[positions[index]] < min_array[index]) return false;
+    // }
+    return true;
+  }
 
   function onResults(results) {
     let width = webcamRef.current.video.videoWidth;
@@ -70,11 +86,12 @@ function useDetection() {
       );
       let new_list = process_landmarks(landmark_point);
       rows.push(new_list);
-      let min_array = signs[2].min_array;
-      let max_array = signs[2].max_array;
+      let min_array = signs[3].min_array;
+      let max_array = signs[3].max_array;
       if (check_position(new_list, min_array, max_array)) {
-        console.log("B");
+        console.log("C");
       }
+      console.log(check_position2(new_list));
     }
 
     //setting canvas height and width
