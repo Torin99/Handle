@@ -1,10 +1,15 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useState } from "react";
+import { useEffect, memo } from "react";
 import useHandle from "../hooks/useHandle";
+import useDetection from "../hooks/useDetection";
 import Board from "./Board/Board";
+import Letters from "./Letters";
+import Detection from "./Detection";
 
 function Handle({ solution }) {
-  const { current, history, guessList, handleKeyup } = useHandle(solution);
+  const { webcamRef, canvasRef, csv, signVal } = useDetection();
+  const { current, guessList, handleKeyup, isCorrect, turn, usedLetters } =
+    useHandle(solution, signVal);
 
   useEffect(() => {
     window.addEventListener("keyup", handleKeyup);
@@ -12,13 +17,31 @@ function Handle({ solution }) {
   }, [handleKeyup]);
 
   return (
-    <div>
-      <div>
+    <div className="App">
+      {/* Solution - {solution} */}
+      <div className="left">
+        <Detection
+          webcamRef={webcamRef}
+          canvasRef={canvasRef}
+          csv={csv}
+          signVal={signVal}
+        />
+      </div>
+      <div className="mid">
+        {/* Guess - {current} */}
         {/* <BoardRow solution={solution.word} /> */}
-        <Board entry={current} guessList={guessList} solution={solution} />
+        <Board
+          current={current}
+          guessList={guessList}
+          // solution={solution}
+          turn={turn}
+        />
+      </div>
+      <div className="right">
+        <Letters usedLetters={usedLetters} />
       </div>
       {/* <div className="Board">{solution && <BoardRow solution={current} />}</div> */}
     </div>
   );
 }
-export default Handle;
+export default memo(Handle);

@@ -4,6 +4,7 @@ import "./App.css";
 import Handle from "./components/Handle";
 import { TbHandRock } from "react-icons/tb";
 import Detection from "./components/Detection";
+import { memo } from "react";
 
 function App() {
   const [solution, setSolution] = useState(null);
@@ -14,29 +15,25 @@ function App() {
       .then((resp) => resp.json())
       .then((json) => {
         const rand = json[Math.floor(Math.random() * json.length)];
-        setSolution(rand);
+        setSolution(rand.word);
       });
   }, [setSolution]);
+  console.log(solution);
   return (
     <>
-      <div className="App">
-        <div className="left">
-          <Detection />
+      <div className="middle">
+        <div className="title">
+          <h2>
+            HANDLE
+            <TbHandRock />
+          </h2>
+          <div className="underline"></div>
         </div>
-        <div className="middle">
-          <div className="title">
-            <h2>
-              HANDLE
-              <TbHandRock />
-            </h2>
-            <div className="underline"></div>
-          </div>
-          {solution && (
-            <>
-              <Handle solution={solution} />
-            </>
-          )}
-        </div>
+        {solution && (
+          <>
+            <Handle solution={solution} />
+          </>
+        )}
       </div>
     </>
   );

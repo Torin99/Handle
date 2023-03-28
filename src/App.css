@@ -22,6 +22,13 @@
   gap: 0.5rem;
 }
 
+.BoardRowCurrent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  animation: flip 0.5s ease forwards;
+}
+
 .BoardSquare {
   display: inline-flex;
   text-transform: uppercase;
@@ -32,6 +39,33 @@
   width: 4rem;
   height: 4rem;
   line-height: 1;
+}
+
+.EntrySquare {
+  display: inline-flex;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #3a3a3c;
+  box-sizing: border-box;
+  width: 8rem;
+  height: 8rem;
+  line-height: 1;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+  45% {
+    transform: rotateX(90deg);
+  }
+  55% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX();
+  }
 }
 
 .title {
@@ -50,4 +84,20 @@
   background: hsl(205, 78%, 60%);
   margin-left: auto;
   margin-right: auto;
+}
+
+.letters {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.letters > div {
+  margin: 5px;
+  width: 40px;
+  height: 50px;
+  /* background: white; */
+  display: inline-block;
+  border: 2px solid hsl(205, 78%, 60%);
+  border-radius: 6px;
+  line-height: 50px;
 }
