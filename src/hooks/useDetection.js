@@ -14,6 +14,7 @@ function useDetection() {
   // const signVal = useRef("");
 
   var camera = null;
+  var camera_on = false;
   let rows = [];
 
   function calc_landmarks(landmarks, w, h) {
@@ -155,9 +156,9 @@ function useDetection() {
     hands.onResults(onResults);
 
     if (
-      //if our webcam "exists", or in english if we have permission (!== compares value and type)
+      //if our webcam "exists", or in english if we have permission (!== compares value and type) and if it's not already on
       typeof webcamRef.current !== "undefined" &&
-      webcamRef.current !== null
+      webcamRef.current !== null && camera_on == false
     ) {
       camera = new cam.Camera(webcamRef.current.video, {
         onFrame: async () => {
@@ -167,6 +168,7 @@ function useDetection() {
         height: 480,
       });
       camera.start();
+      camera_on = true;
     }
   });
 
