@@ -53,7 +53,7 @@ function useDetection() {
   }
 
   function check_position(index_array, min_array, max_array) {
-    let positions = [8, 9, 16, 17, 24, 25, 32, 33, 40, 41];
+    let positions = [8, 9, 16, 17, 24, 25, 32, 33, 40, 41]; //just looking at the tips of fingers to evaluate position
 
     for (let index in positions) {
       if (index_array[positions[index]] > max_array[index]) return false;
