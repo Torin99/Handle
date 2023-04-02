@@ -2,12 +2,22 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Handle from "./components/Handle";
+import { useMemo } from "react";
+
 import { TbHandRock } from "react-icons/tb";
 import Detection from "./components/Detection";
-import { memo } from "react";
+import useDetection from "./hooks/useDetection";
+import useHandle from "./hooks/useHandle";
+import Letters from "./components/Letters";
+import EntrySquare from "./components/EntrySquare";
 
 function App() {
   const [solution, setSolution] = useState(null);
+  const { webcamRef, canvasRef, csv, signVal } = useDetection();
+
+  const { current, guessList, handleKeyup, isCorrect, turn, usedLetters } =
+    useHandle(solution, signVal);
+  console.log(signVal);
 
   useEffect(() => {
     //look for the server and then pick a random number and set it as the solution, from the library of solutions
@@ -18,22 +28,42 @@ function App() {
         setSolution(rand.word);
       });
   }, [setSolution]);
-  console.log(solution);
   return (
     <>
-      <div className="middle">
-        <div className="title">
-          <h2>
-            HANDLE
-            <TbHandRock />
-          </h2>
-          <div className="underline"></div>
+      <div className="title">
+        <h2>
+          HANDLE
+          <TbHandRock />
+        </h2>
+        <div className="underline"></div>
+      </div>
+      <div className="App">
+        <div className="left">
+          <Detection
+            key={new Date().getTime}
+            webcamRef={webcamRef}
+            canvasRef={canvasRef}
+            csv={csv}
+          />
+          <EntrySquare signVal={signVal} />
         </div>
-        {solution && (
-          <>
-            <Handle solution={solution} />
-          </>
-        )}
+        <div className="middle">
+          {solution && (
+            <Handle
+              solution={solution}
+              signVal={signVal}
+              current={current}
+              guessList={guessList}
+              handleKeyup={handleKeyup}
+              isCorrect={isCorrect}
+              turn={turn}
+              usedLetters={usedLetters}
+            />
+          )}
+        </div>
+        <div className="right">
+          <Letters usedLetters={usedLetters} />
+        </div>
       </div>
     </>
   );

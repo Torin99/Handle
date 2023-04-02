@@ -1,19 +1,47 @@
-import useDetection from "../hooks/useDetection";
-import EntrySquare from "./EntrySquare";
-import Camera from "./Camera";
+import Webcam from "react-webcam";
 import { memo, useState, useEffect } from "react";
 
-function Detection({ webcamRef, canvasRef, csv, signVal }) {
+function Detection({ webcamRef, canvasRef, csv }) {
   return (
     <div>
-      {/* <button onClick={csv}>CSV</button> */}
+      <button onClick={csv}>CSV</button>
       <div>
         <br />
-        <Camera canvasRef={canvasRef} webcamRef={webcamRef} />
+        <Webcam
+          ref={webcamRef}
+          style={{
+            position: "absolute",
+            marginRight: "auto",
+            marginLeft: "auto",
+            left: 0,
+            right: 0,
+            textAlign: "start",
+            zIndex: 9,
+            width: 320,
+            height: 240,
+            visibility: "hidden",
+          }}
+        />
+        <canvas
+          ref={canvasRef}
+          style={{
+            position: "relative",
+            marginRight: "auto",
+            marginLeft: "auto",
+            left: 0,
+            right: 0,
+            textAlign: "start",
+            zIndex: 9,
+            width: 320,
+            height: 240,
+            border: "5px solid hsl(205, 78%, 60%)",
+            borderRadius: "25px",
+          }}
+        ></canvas>
+
         <br />
       </div>
-      <EntrySquare signVal={signVal} />
     </div>
   );
 }
-export default memo(Detection);
+export default Detection;

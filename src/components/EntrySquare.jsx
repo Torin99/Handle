@@ -9,4 +9,4 @@ function EntrySquare({ signVal }) {
     </div>
   );
 }
-export default EntrySquare;
+export default memo(EntrySquare);

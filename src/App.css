@@ -12,6 +12,8 @@
 
 .Board {
   display: grid;
+  justify-content: center;
+  align-items: center;
   /* grid-template-rows: repeat(6, 1fr); */
   gap: 0.5rem;
 }
@@ -72,6 +74,8 @@
   margin-bottom: 3rem;
   letter-spacing: 2rem;
   text-indent: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 #child {
@@ -100,4 +104,63 @@
   border: 2px solid hsl(205, 78%, 60%);
   border-radius: 6px;
   line-height: 50px;
+}
+
+.letters > div:hover {
+  border-color: white;
+  cursor: pointer;
+}
+
+.gameEnd {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.gameEnd div {
+  max-width: 480px;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 10% auto;
+}
+
+.demo {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.demo div {
+  position: relative;
+  width: 400px;
+  height: 350px;
+  background: white;
+  /* padding: 40px; */
+  border: 2px solid white;
+  border-radius: 15px;
+  margin: 10% auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.demo div h1 {
+  color: black;
+}
+.demo div img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.demo div button {
+  /* border: 5px solid hsl(205, 78%, 60%); */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: red;
+  border-radius: 0px;
 }

@@ -1,15 +1,16 @@
 import { Hands } from "@mediapipe/hands";
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import * as Hands2 from "@mediapipe/hands";
 import * as cam from "@mediapipe/camera_utils";
 import signs from "../../data/sign_data";
+import { memo } from "react";
 
 function useDetection() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const connect = window.drawConnectors;
   const landmark = window.drawLandmarks;
-  let prevSignVal = "";
+  const prevSignVal = useRef("");
   const [signVal, setSignVal] = useState("");
   // const signVal = useRef("");
 
@@ -66,11 +67,9 @@ function useDetection() {
       let max_array = sign.max_array;
       let min_array = sign.min_array;
       if (check_position(index_array, min_array, max_array)) {
-        if (prevSignVal === "" || prevSignVal !== sign.sign) {
-          prevSignVal = sign.sign;
-          // signVal.current = sign.sign;
-          // console.log(signVal.current);
-
+        if (prevSignVal.current === "" || prevSignVal.current !== sign.sign) {
+          console.log("state change");
+          prevSignVal.current = sign.sign;
           setSignVal(sign.sign);
         }
         return sign.sign;
@@ -142,9 +141,13 @@ function useDetection() {
     const hands = new Hands({
       //setup new hands object used for detection
       locateFile: (file) => {
+        console.log(file);
         return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+        // return `../../public/${file}`;
       },
     });
+
+    console.log(hands);
     hands.setOptions({
       maxNumHands: 1,
       modelComplexity: 1,

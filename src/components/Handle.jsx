@@ -1,32 +1,41 @@
 import React, { useState } from "react";
 import { useEffect, memo } from "react";
-import useHandle from "../hooks/useHandle";
-import useDetection from "../hooks/useDetection";
 import Board from "./Board/Board";
-import Letters from "./Letters";
-import Detection from "./Detection";
+import GameEnd from "./GameEnd";
 
-function Handle({ solution }) {
-  const { webcamRef, canvasRef, csv, signVal } = useDetection();
-  const { current, guessList, handleKeyup, isCorrect, turn, usedLetters } =
-    useHandle(solution, signVal);
+function Handle({
+  solution,
+  signVal,
+  current,
+  guessList,
+  handleKeyup,
+  isCorrect,
+  turn,
+  usedLetters,
+}) {
+  const [isEndGame, setIsEndGame] = useState(false);
+  // const [temp, setTemp] = useState(signValRef.current);
+  // console.log(temp);
 
   useEffect(() => {
     window.addEventListener("keyup", handleKeyup);
+    if (isCorrect) {
+      setTimeout(() => setIsEndGame(true), 2000);
+      window.removeEventListener("keyup", handleKeyup);
+    }
+
+    if (turn > 5) {
+      setTimeout(() => setIsEndGame(true), 2000);
+      window.removeEventListener("keyup", handleKeyup);
+    }
+
     return () => window.removeEventListener("keyup", handleKeyup);
-  }, [handleKeyup]);
+  }, [handleKeyup, isCorrect, turn]);
 
   return (
-    <div className="App">
+    <div>
       {/* Solution - {solution} */}
-      <div className="left">
-        <Detection
-          webcamRef={webcamRef}
-          canvasRef={canvasRef}
-          csv={csv}
-          signVal={signVal}
-        />
-      </div>
+
       <div className="mid">
         {/* Guess - {current} */}
         {/* <BoardRow solution={solution.word} /> */}
@@ -36,10 +45,11 @@ function Handle({ solution }) {
           // solution={solution}
           turn={turn}
         />
+        {isEndGame && (
+          <GameEnd solution={solution} isCorrect={isCorrect} turn={turn} />
+        )}
       </div>
-      <div className="right">
-        <Letters usedLetters={usedLetters} />
-      </div>
+
       {/* <div className="Board">{solution && <BoardRow solution={current} />}</div> */}
     </div>
   );
