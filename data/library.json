@@ -25,7 +25,8 @@
     { "key": "w", "image": "w.png" },
     { "key": "x", "image": "x.png" },
     { "key": "y", "image": "y.png" },
-    { "key": "z", "image": "z.png" }
+    { "key": "z", "image": "z.png" },
+    { "key": "enter", "image": "enter.png" }
   ],
 
   "solutions": [

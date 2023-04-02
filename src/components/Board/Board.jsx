@@ -1,5 +1,6 @@
 import React from "react";
 import BoardRow from "./BoardRow";
+import { div } from "@tensorflow/tfjs";
 function Board({ current, guessList, turn }) {
   let word = (current + "     ").substring(0, 5).split("");
   return (
@@ -8,7 +9,15 @@ function Board({ current, guessList, turn }) {
         if (turn === i) {
           return <BoardRow key={i} current={word} />;
         } else {
-          return <BoardRow key={i} guess={guess} />;
+          return (
+            <div>
+              <BoardRow
+                key={i}
+                guess={guess}
+                boardClass={turn - 1 === i ? "BoardRowCurrent" : "BoardRow"}
+              />
+            </div>
+          );
         }
       })}
       {/* <BoardRow entry={word} /> */}

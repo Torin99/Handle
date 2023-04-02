@@ -1,10 +1,9 @@
 import Webcam from "react-webcam";
-import { memo, useState, useEffect } from "react";
 
 function Detection({ webcamRef, canvasRef, csv }) {
   return (
     <div>
-      <button onClick={csv}>CSV</button>
+      {/* <button onClick={csv}>CSV</button> */}
       <div>
         <br />
         <Webcam

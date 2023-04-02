@@ -1,8 +1,8 @@
 import React from "react";
-function BoardRow({ current, guess }) {
+function BoardRow({ i, current, guess, boardClass }) {
   if (guess) {
     return (
-      <div className="BoardRow">
+      <div className={boardClass}>
         {guess.map((letter, index) => (
           <div
             className="BoardSquare"
@@ -12,13 +12,14 @@ function BoardRow({ current, guess }) {
             }}
           >
             <h2>{letter.key}</h2>
+            <p>{i}</p>
           </div>
         ))}
       </div>
     );
   } else if (current) {
     return (
-      <div className="BoardRowCurrent">
+      <div className="BoardRow">
         {current.map((letter, index) => (
           <div className="BoardSquare" key={index}>
             <h2>{letter}</h2>

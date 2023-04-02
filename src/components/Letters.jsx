@@ -30,6 +30,7 @@ function Letters({ usedLetters }) {
             const color = usedLetters[letter.key];
             return (
               <div
+                className={letter.key}
                 onClick={() => handleClick(letter)}
                 style={{ background: color }}
                 key={letter.key}

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Handle from "./components/Handle";
-import { useMemo } from "react";
+import { ToggleSlider } from "react-toggle-slider";
 
 import { TbHandRock } from "react-icons/tb";
 import Detection from "./components/Detection";
@@ -13,6 +13,8 @@ import EntrySquare from "./components/EntrySquare";
 
 function App() {
   const [solution, setSolution] = useState(null);
+  const [showWebcam, setShowWebcam] = useState(true);
+
   const { webcamRef, canvasRef, csv, signVal } = useDetection();
 
   const { current, guessList, handleKeyup, isCorrect, turn, usedLetters } =
@@ -39,13 +41,24 @@ function App() {
       </div>
       <div className="App">
         <div className="left">
-          <Detection
-            key={new Date().getTime}
-            webcamRef={webcamRef}
-            canvasRef={canvasRef}
-            csv={csv}
-          />
-          <EntrySquare signVal={signVal} />
+          <div className="toggle">
+            <p>Webcam</p>
+            <ToggleSlider
+              barBackgroundColorActive="hsl(205, 78%, 60%)"
+              onToggle={() => setShowWebcam(!showWebcam)}
+            />
+          </div>
+          {showWebcam && (
+            <div>
+              <Detection
+                key={new Date().getTime}
+                webcamRef={webcamRef}
+                canvasRef={canvasRef}
+                csv={csv}
+              />
+              <EntrySquare signVal={signVal} />
+            </div>
+          )}
         </div>
         <div className="middle">
           {solution && (

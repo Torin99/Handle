@@ -95,6 +95,17 @@
   margin: 20px auto;
 }
 
+.letters > .enter {
+  margin: 5px;
+  width: 95px;
+  height: 50px;
+  /* background: white; */
+  display: inline-block;
+  border: 2px solid hsl(205, 78%, 60%);
+  border-radius: 6px;
+  line-height: 50px;
+}
+
 .letters > div {
   margin: 5px;
   width: 40px;
@@ -163,4 +174,15 @@
   right: 0px;
   background-color: red;
   border-radius: 0px;
+}
+
+.toggle {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 50px;
+}
+
+.slider {
+  barbackgroundcoloractive: yellow;
 }

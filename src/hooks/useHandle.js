@@ -67,14 +67,14 @@ function useHandle(solution, signVal) {
   function handleKeyup({ key }) {
     //check for letter input
     var expression = new RegExp("^[a-zA-Z]$", "i");
-    if (key === " " && signVal) {
+    if (key === " " && signVal && signVal !== "THUMBS UP") {
       if (current.length < 5) {
         setCurrent((prev) => {
           return prev + signVal.toLowerCase();
         });
       }
     }
-    if (key === "Enter") {
+    if (key === "Enter" || (key === " " && signVal === "THUMBS UP")) {
       //requirements: length of 5 char, not @ max turns, not duplicate
       if (turn > 5) {
         console.log("Out of Turns");
