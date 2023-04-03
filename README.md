@@ -49,3 +49,15 @@ npm run dev
 Finally in Browser navigate to the localhost url presented in the Terminal:
 [http://localhost:5173/](http://localhost:5173/)
 
+## Project Structure:
+
+  │
+  ├── data                    # Test files (alternatively `spec` or `tests`)
+  │   ├── benchmarks          # Load and stress tests
+  │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
+  │   └── unit                # Unit tests
+  │
+  ├── public
+  │
+  ├── src
+  └── ...
