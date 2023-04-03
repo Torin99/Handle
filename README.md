@@ -18,7 +18,7 @@ Handle is submitted to Project Program for team **IBM & Chandler** with contribu
 ## ⚙️ Run Locally:
 ---------------
 
-###Follow the Below Commands to Run Handle on Your Machine:
+**Follow the Below Commands to Run Handle on Your Machine:**
 
 Running Handle Requires 2 Terminals. 
 In the First Terminal Run the Following:
