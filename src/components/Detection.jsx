@@ -3,6 +3,7 @@ import Webcam from "react-webcam";
 function Detection({ webcamRef, canvasRef, csv }) {
   return (
     <div>
+      {/* button to download hand landmark data, not shown on final version */}
       {/* <button onClick={csv}>CSV</button> */}
       <div>
         <br />

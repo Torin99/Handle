@@ -1,28 +1,27 @@
-import React, { useRef } from "react";
-import { useState, useEffect } from "react";
 import "./App.css";
-import Handle from "./components/Handle";
-import { ToggleSlider } from "react-toggle-slider";
+import { useState, useEffect } from "react";
 
-import { TbHandRock } from "react-icons/tb";
-import Detection from "./components/Detection";
 import useDetection from "./hooks/useDetection";
 import useHandle from "./hooks/useHandle";
-import Letters from "./components/Letters";
+
+import { TbHandRock } from "react-icons/tb";
+
+import Detection from "./components/Detection";
 import EntrySquare from "./components/EntrySquare";
+import Handle from "./components/Handle";
+import Letters from "./components/Letters";
 
 function App() {
-  const [solution, setSolution] = useState(null);
+  const [solution, setSolution] = useState(null); //store random word
 
-  const { webcamRef, canvasRef, csv, signVal } = useDetection();
-
+  const { webcamRef, canvasRef, csv, signVal } = useDetection(); //detection inputs, webcam and mediapipe values
   const { current, guessList, handleKeyup, isCorrect, turn, usedLetters } =
-    useHandle(solution, signVal);
-  console.log(signVal);
+    useHandle(solution, signVal); //handle inputs/game logic
 
+  //fetch random solution data
   useEffect(() => {
     //look for the server and then pick a random number and set it as the solution, from the library of solutions
-    fetch("http://localhost:3001/solutions")
+    fetch("http://localhost:3001/solutions") //data hosted from library.json
       .then((resp) => resp.json())
       .then((json) => {
         const rand = json[Math.floor(Math.random() * json.length)];
@@ -40,29 +39,25 @@ function App() {
       </div>
       <div className="App">
         <div className="left">
-          <Detection
-            key={new Date().getTime}
-            webcamRef={webcamRef}
-            canvasRef={canvasRef}
-            csv={csv}
-          />
+          <Detection webcamRef={webcamRef} canvasRef={canvasRef} csv={csv} />
+          {/* display detected ASL letter */}
           <EntrySquare signVal={signVal} />
         </div>
         <div className="middle">
-          {solution && (
+          {solution && ( //display if successful data fetch
+            //game board
             <Handle
               solution={solution}
-              signVal={signVal}
               current={current}
               guessList={guessList}
               handleKeyup={handleKeyup}
               isCorrect={isCorrect}
               turn={turn}
-              usedLetters={usedLetters}
             />
           )}
         </div>
         <div className="right">
+          {/* letter keypad */}
           <Letters usedLetters={usedLetters} />
         </div>
       </div>
