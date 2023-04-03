@@ -4,7 +4,7 @@ A twist on the popular New York Times Puzzle game 'Wordle', this variation uses 
 
 ## About
 
-Handle is a **Sign Language Detection** game created for submission to the W23 Project Program Competition. Created in React, It uses Google's open source machine learning API **MediaPipe Hands** to detect hand landmark placement and accurately predict sign letters from user input. With example hand gestures, it is a fun and interactive way to learn Sign Language. 
+Handle is a **Sign Language Detection** game created for submission to the W23 Project Program Competition. Created in React, it uses Google's open source machine learning API **MediaPipe Hands** to detect hand landmark placement and accurately predict sign letters from user input. With example hand gestures, it is a fun and interactive way to learn Sign Language. 
 
 Handle is submitted to Project Program for team **IBM & Chandler** with contributions from team members:
 - Riley Adams
@@ -52,12 +52,34 @@ Finally in Browser navigate to the localhost url presented in the Terminal:
 ## Project Structure:
     .
     │
-    ├── data                    # Test files (alternatively `spec` or `tests`)
-    │   ├── benchmarks          # Load and stress tests
-    │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
-    │   └── unit                # Unit tests
+    ├── data/                   # data files
+    │   ├── library.json        # data to be fetched from server, contains solution words and letters
+    │   └── sign_data.js        # contains min and max values of hand landmark data and their letters
+    │ 
+    ├── public/                 #public files
+    │   ├── a.png               #images used in Letters.jsx for demo hand placement
+    │   ├── ...
+    │   └── z.png               
     │
-    ├── public
+    ├── src/                    #main app files
+    │   ├── components/               #images used in Letters.jsx for demo hand placement
+    │   │   ├── Board/
+    │   │   │   ├── Board.jsx
+    │   │   │   └── BoardRow.jsx
+    │   │   ├── Detection.jsx
+    │   │   ├── EntrySquare.jsx
+    │   │   ├── GameEnd.jsx
+    │   │   ├── Handle.jsx
+    │   │   └── Letters.jsx
+    │   │ 
+    │   ├── hooks/
+    │   │   ├── UseDetection.js
+    │   │   └── UseHandle.js
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── index.css
+    │   └── main.jsx  
     │
-    ├── src
-    └── ...
+    ├── index.html
+    ├── index.htmlpackage.json
+    .
