@@ -3,14 +3,16 @@ function GameEnd({ isCorrect, turn, solution }) {
     <div className="gameEnd">
       {isCorrect && (
         <div>
-          <h1>Correct</h1>
-          <p>{solution}</p>
+          <h2 className="endText">Correct!</h2>
+          <h3 className="endText">The word was</h3>
+          <h2 className="solution">{solution.toUpperCase()}</h2>
         </div>
       )}
       {!isCorrect && (
         <div>
-          <h1>Out of Guesses</h1>
-          <p>{solution}</p>
+          <h2 className="endText">Out of Guesses :( </h2>
+          <h3 className="endText">The word was</h3>
+          <h2 style={{ color: "red" }}>{solution.toUpperCase()}</h2>
         </div>
       )}
     </div>

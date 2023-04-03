@@ -20,12 +20,12 @@ function Handle({
   useEffect(() => {
     window.addEventListener("keyup", handleKeyup);
     if (isCorrect) {
-      setTimeout(() => setIsEndGame(true), 2000);
+      setTimeout(() => setIsEndGame(true), 1000);
       window.removeEventListener("keyup", handleKeyup);
     }
 
     if (turn > 5) {
-      setTimeout(() => setIsEndGame(true), 2000);
+      setTimeout(() => setIsEndGame(true), 1000);
       window.removeEventListener("keyup", handleKeyup);
     }
 

@@ -13,7 +13,6 @@ import EntrySquare from "./components/EntrySquare";
 
 function App() {
   const [solution, setSolution] = useState(null);
-  const [showWebcam, setShowWebcam] = useState(true);
 
   const { webcamRef, canvasRef, csv, signVal } = useDetection();
 
@@ -41,24 +40,13 @@ function App() {
       </div>
       <div className="App">
         <div className="left">
-          <div className="toggle">
-            <p>Webcam</p>
-            <ToggleSlider
-              barBackgroundColorActive="hsl(205, 78%, 60%)"
-              onToggle={() => setShowWebcam(!showWebcam)}
-            />
-          </div>
-          {showWebcam && (
-            <div>
-              <Detection
-                key={new Date().getTime}
-                webcamRef={webcamRef}
-                canvasRef={canvasRef}
-                csv={csv}
-              />
-              <EntrySquare signVal={signVal} />
-            </div>
-          )}
+          <Detection
+            key={new Date().getTime}
+            webcamRef={webcamRef}
+            canvasRef={canvasRef}
+            csv={csv}
+          />
+          <EntrySquare signVal={signVal} />
         </div>
         <div className="middle">
           {solution && (

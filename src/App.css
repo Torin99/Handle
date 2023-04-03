@@ -130,11 +130,19 @@
   left: 0;
 }
 .gameEnd div {
-  max-width: 480px;
+  width: 300px;
   background: white;
   padding: 40px;
   border-radius: 10px;
   margin: 10% auto;
+  border: 5px solid hsl(205, 78%, 60%);
+}
+
+.endText {
+  color: black;
+}
+.solution {
+  color: hsl(205, 78%, 60%);
 }
 
 .demo {
@@ -174,15 +182,4 @@
   right: 0px;
   background-color: red;
   border-radius: 0px;
-}
-
-.toggle {
-  position: absolute;
-  display: inline-block;
-  top: 0px;
-  left: 50px;
-}
-
-.slider {
-  barbackgroundcoloractive: yellow;
 }

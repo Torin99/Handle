@@ -6,6 +6,7 @@ import signs from "../../data/sign_data";
 import { memo } from "react";
 
 function useDetection() {
+  const [initialRender, setInitialRender] = useState(true);
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const connect = window.drawConnectors;
@@ -169,7 +170,10 @@ function useDetection() {
         width: 640,
         height: 480,
       });
-      camera.start();
+      if (initialRender) {
+        camera.start();
+        setInitialRender(false);
+      }
     }
   });
 
