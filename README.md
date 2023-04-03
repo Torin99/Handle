@@ -16,17 +16,33 @@ Handle is a **Sign Language Detection** game created for submission to the W23 P
 
 Follow the Below Commands to Run Handle on Your Machine:
 
+Running Handle Requires 2 Terminals. 
+In the First Terminal Run the Following:
+
 ```bash
 # Clone The Latest Version
 https://github.com/Torin99/Handle.git
 
 # Change Into Project Directory
-cd handle
+cd Handle
 
 # Install Dependencies
-npm install
+npm install -- force
 
-# Then simply start your app
+# Start the Data Server
+json-server ./data/library.json --port 3001
+```
+
+In the Second Terminal Run the Following:
+
+```bash
+# Change Into Project Directory
+cd Handle
+
+# Run The Project
 npm run dev
 ```
+
+Finally in Browser navigate to the localhost url presented in the Terminal:
+[http://localhost:5173/](http://localhost:5173/)
 
