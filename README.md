@@ -52,34 +52,35 @@ Finally in Browser navigate to the localhost url presented in the Terminal:
 ## Project Structure:
     .
     │
-    ├── data/                   # data files
-    │   ├── library.json        # data to be fetched from server, contains solution words and letters
-    │   └── sign_data.js        # contains min and max values of hand landmark data and their letters
+    ├── data/                       # data files
+    │   ├── library.json            # data to be fetched from server, contains solution words and letters
+    │   └── sign_data.js            # contains min and max values of hand landmark data and their letters
     │ 
-    ├── public/                 #public files
-    │   ├── a.png               #images used in Letters.jsx for demo hand placement
+    ├── public/                     # public files
+    │   ├── a.png                   # images used in Letters.jsx for demo hand placement
     │   ├── ...
     │   └── z.png               
     │
-    ├── src/                    #main app files
-    │   ├── components/               #images used in Letters.jsx for demo hand placement
-    │   │   ├── Board/
-    │   │   │   ├── Board.jsx
-    │   │   │   └── BoardRow.jsx
-    │   │   ├── Detection.jsx
-    │   │   ├── EntrySquare.jsx
-    │   │   ├── GameEnd.jsx
-    │   │   ├── Handle.jsx
-    │   │   └── Letters.jsx
+    ├── src/                        # main app files
+    ├── components/                 # react components to be rendered in App.jsx
+    │   │   ├── Board/              # components used in center board component
+    │   │   │   ├── Board.jsx       # main Board component containing BoardRows
+    │   │   │   └── BoardRow.jsx    # Board Rows containing Board Squares of current/previous guesses
+    │   │   │   
+    │   │   ├── Detection.jsx       # webcam and canvas components
+    │   │   ├── EntrySquare.jsx     # component to display most recent signed letter
+    │   │   ├── GameEnd.jsx         # message to display on game end
+    │   │   ├── Handle.jsx          # main game component, takes in game logic and assigns to components accordingly
+    │   │   └── Letters.jsx         # keypad component to show letters and their color relation to solution
     │   │ 
     │   ├── hooks/
-    │   │   ├── UseDetection.js
-    │   │   └── UseHandle.js
-    │   ├── App.css
-    │   ├── App.jsx
-    │   ├── index.css
-    │   └── main.jsx  
+    │   │   ├── UseDetection.js     # webcam & canvas logic
+    │   └── UseHandle.js            # game logic
+    │   ├── App.css                 # app styling
+    │   ├── App.jsx                 # main component to contain all above components
+    │   ├── index.css               # index styling
+    │   └── main.jsx                # component sent to index.html containing app.jsx
     │
-    ├── index.html
-    ├── index.htmlpackage.json
+    ├── index.html                  # web application, contains app and MediaPipe scripts    
+    ├── package.json                # dependencies
     .
