@@ -21,7 +21,7 @@ In the First Terminal Run the Following:
 
 ```bash
 # Clone The Latest Version
-https://github.com/Torin99/Handle.git
+git clone https://github.com/Torin99/Handle.git
 
 # Change Into Project Directory
 cd Handle
