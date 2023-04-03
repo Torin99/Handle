@@ -12,7 +12,7 @@ Handle is submitted to Project Program for team **IBM & Chandler** with contribu
 
 
 ## 💻 Demo:
-<img src="/public/HandleGif.gif" width="650" height="400">
+<img src="/public/HandleGif.gif" width="700" height="400">
 
 
 ## ⚙️ Run Locally:
