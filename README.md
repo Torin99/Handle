@@ -16,7 +16,6 @@ Handle is submitted to Project Program for team **IBM & Chandler** with contribu
 
 
 ## ⚙️ Run Locally:
----------------
 
 **Follow the Below Commands to Run Handle on Your Machine:**
 
