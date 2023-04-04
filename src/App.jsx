@@ -5,14 +5,17 @@ import useDetection from "./hooks/useDetection";
 import useHandle from "./hooks/useHandle";
 
 import { TbHandRock } from "react-icons/tb";
+import { BsInfoCircle } from "react-icons/bs";
 
 import Detection from "./components/Detection";
 import EntrySquare from "./components/EntrySquare";
 import Handle from "./components/Handle";
 import Letters from "./components/Letters";
+import { div } from "@tensorflow/tfjs";
 
 function App() {
   const [solution, setSolution] = useState(null); //store random word
+  const [isHover, setIsHover] = useState(false);
 
   const { webcamRef, canvasRef, csv, signVal } = useDetection(); //detection inputs, webcam and mediapipe values
   const { current, guessList, handleKeyup, isCorrect, turn, usedLetters } =
@@ -39,6 +42,21 @@ function App() {
       </div>
       <div className="App">
         <div className="left">
+          <div
+            className="tooltip"
+            onMouseOver={() => setIsHover(true)}
+            onMouseOut={() => setIsHover(false)}
+          >
+            <BsInfoCircle className="tooltipIcon" />
+          </div>
+
+          {isHover && (
+            <div className="tooltipText">
+              <p>Sign your letter within the green detection box</p>
+              <p> Press SPACE to input the detected letter</p>
+            </div>
+          )}
+
           <Detection webcamRef={webcamRef} canvasRef={canvasRef} csv={csv} />
           {/* display detected ASL letter */}
           <EntrySquare signVal={signVal} />

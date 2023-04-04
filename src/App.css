@@ -183,3 +183,34 @@
   background-color: red;
   border-radius: 0px;
 }
+
+.tooltip {
+  display: flexbox;
+  width: 1rem;
+  height: 1rem;
+  padding-left: 3rem;
+}
+
+.tooltip :hover * {
+  color: hsl(205, 78%, 60%);
+}
+
+.tooltipText {
+  position: absolute;
+  top: -40px;
+  left: 70px;
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 15px;
+}
+.tooltipText > p {
+  font-size: small;
+  font-weight: bold;
+  color: hsl(205, 78%, 60%);
+}
+
+.left {
+  position: relative;
+  top: -20px;
+}
