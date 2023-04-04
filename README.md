@@ -75,7 +75,7 @@ Finally in Browser navigate to the localhost url presented in the Terminal:
     │   │ 
     │   ├── hooks/
     │   │   ├── UseDetection.js     # webcam & canvas logic
-    │   └── UseHandle.js            # game logic
+    │   │   └── UseHandle.js        # game logic
     │   ├── App.css                 # app styling
     │   ├── App.jsx                 # main component to contain all above components
     │   ├── index.css               # index styling
