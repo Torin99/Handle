@@ -195,7 +195,7 @@ function useDetection() {
         height: 480,
       });
       if (initialRender) {
-        //only start mediapipe camera on initial render to avoid lag
+        // only start mediapipe camera on initial render to avoid lag
         camera.start();
         setInitialRender(false);
       }
