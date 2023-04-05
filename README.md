@@ -13,7 +13,8 @@ Handle is submitted to Project Program for team **IBM & Chandler** with support 
 
 ## 💻 Demo:
 <img src="/public/HandleGif.gif" width="700" height="400">
-**Complete Game Play Demo**: [HANDLE DEMO](https://www.youtube.com/watch?v=EuX1mSssuus)
+**Complete Game Play Demo**: 
+[HANDLE DEMO](https://www.youtube.com/watch?v=EuX1mSssuus)
 
 
 ## ⚙️ Run Locally:
