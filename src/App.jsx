@@ -11,7 +11,6 @@ import Detection from "./components/Detection";
 import EntrySquare from "./components/EntrySquare";
 import Handle from "./components/Handle";
 import Letters from "./components/Letters";
-import { div } from "@tensorflow/tfjs";
 
 function App() {
   const [solution, setSolution] = useState(null); //store random word
