@@ -7,7 +7,6 @@ import * as cam from "@mediapipe/camera_utils";
 import signs from "../../data/sign_data";
 
 function useDetection() {
-  const [initialRender, setInitialRender] = useState(true); //start camera only on initial render
   const webcamRef = useRef(null); //current cam value
   const canvasRef = useRef(null); //current canvas value
 
@@ -194,13 +193,9 @@ function useDetection() {
         width: 640,
         height: 480,
       });
-      if (initialRender) {
-        // only start mediapipe camera on initial render to avoid lag
-        camera.start();
-        setInitialRender(false);
-      }
+      camera.start();
     }
-  });
+  }, []);
 
   return { webcamRef, canvasRef, csv, signVal };
 }

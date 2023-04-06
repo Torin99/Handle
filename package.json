@@ -2,8 +2,6 @@
   "dependencies": {
     "@mediapipe/camera_utils": "^0.3.1675466862",
     "@mediapipe/hands": "^0.4.1675469240",
-    "@tensorflow/tfjs": "^4.3.0",
-    "@tensorflow/tfjs-tflite": "^0.0.1-alpha.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
