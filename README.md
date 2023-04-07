@@ -32,7 +32,7 @@ git clone https://github.com/Torin99/Handle.git
 cd Handle
 
 # Install Dependencies
-npm install -- force
+npm install --force
 
 # Start the Data Server
 json-server ./data/library.json --port 3001
