@@ -8,6 +8,8 @@ Handle is a **Sign Language Detection** game and the 🥈**Second Place Winner**
 
 ## ⁉️ Technologies Used:
 
+![Tech](https://user-images.githubusercontent.com/87572723/231278971-65f4b28a-75f0-4098-995f-77e67666a721.png)
+
 - ReactJS
 - MediaPipe
 - Firebase
