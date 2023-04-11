@@ -6,13 +6,13 @@ A twist on the popular New York Time's Puzzle game 'Wordle', this variation uses
 
 Handle is a **Sign Language Detection** game and the 🥈**Second Place Winner**🥈 of the W23 Project Program Competition. Created in React, it uses Google's open source machine learning API **[MediaPipe Hands](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker)** to detect hand landmark placement and accurately predict sign letters from user input. With example hand gestures, it is a fun and interactive way to learn Sign Language.
 
-## ⁉️ Technologies Used:
+## 🛠️ Technologies Used:
 
 ![Tech](https://user-images.githubusercontent.com/87572723/231278971-65f4b28a-75f0-4098-995f-77e67666a721.png)
 
-- ReactJS
-- MediaPipe
-- Firebase
+- **ReactJS:** Component design/layout and game logic
+- **Firebase:** Used for fetching of game solutions and backend data
+- **MediaPipe:** MediaPipe Hands for palm and finger detection
 
 ## 💻 Demo:
 
