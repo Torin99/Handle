@@ -12,6 +12,8 @@ import EntrySquare from "./components/EntrySquare";
 import Handle from "./components/Handle";
 import Letters from "./components/Letters";
 
+import projectStorage from "./firebase/config";
+
 function App() {
   const [solution, setSolution] = useState(null); //store random word
   const [isHover, setIsHover] = useState(false);
@@ -20,16 +22,21 @@ function App() {
   const { current, guessList, handleKeyup, isCorrect, turn, usedLetters } =
     useHandle(solution, signVal); //handle inputs/game logic
 
-  //fetch random solution data
+  //fetch solution data from firebase
   useEffect(() => {
-    //look for the server and then pick a random number and set it as the solution, from the library of solutions
-    fetch("http://localhost:3001/solutions") //data hosted from library.json
-      .then((resp) => resp.json())
-      .then((json) => {
-        const rand = json[Math.floor(Math.random() * json.length)];
+    projectStorage
+      .collection("Solutions")
+      .get()
+      .then((resp) => {
+        let results = [];
+        resp.docs.forEach((doc) => {
+          results.push({ id: doc.id, ...doc.data() });
+        });
+        const rand = results[Math.floor(Math.random() * results.length)]; //select random word
         setSolution(rand.word);
       });
   }, [setSolution]);
+
   return (
     <>
       <div className="title">

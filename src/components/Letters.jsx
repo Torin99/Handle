@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import projectStorage from "../firebase/config";
 
 function Letters({ usedLetters }) {
   //keypad of clickable letters corresponding to past guesses
@@ -17,13 +18,21 @@ function Letters({ usedLetters }) {
     setShowDemo(false);
     setClickedLetter(null);
   }
+
   useEffect(() => {
-    fetch("http://localhost:3001/letters") //fetch data from library.json
-      .then((resp) => resp.json())
-      .then((json) => {
-        setLetters(json);
+    //fetch data from firebase
+    projectStorage
+      .collection("Letters")
+      .get()
+      .then((resp) => {
+        let results = [];
+        resp.docs.forEach((doc) => {
+          results.push({ id: doc.id, ...doc.data() });
+        });
+        setLetters(results);
       });
-  }, []);
+  }, [setLetters]);
+
   return (
     <div>
       <div className="letters">
